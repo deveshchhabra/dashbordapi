@@ -1,17 +1,18 @@
 "use client"
 import React from 'react'
 import { BarChart, Card} from '@tremor/react'
-import { analytics } from '@/utils/analytics'
+// import { analytics } from '@/utils/analytics'
 
 interface AnalyticsDashboardProps {
   avgVisitorsPerDay: string
   amtVisitorToday:number
   timestamp:'YYYY-MM-DDTHH:mm'
   
-  pageviews: Awaited<ReturnType<typeof analytics.retreiveDays>>
-  pageviews2: Awaited<ReturnType<typeof analytics.retreiveDays>>
+  // pageviews: Awaited<ReturnType<typeof analytics.retreiveDays>>
+  // pageviews2: Awaited<ReturnType<typeof analytics.retreiveDays>>
 }
 // {}:AnalyticsDashbordprops
+ // @ts-ignore
 const AnalyticsDashbord = ({avgVisitorsPerDay,  pageviews, pageviews2 , timestamp}:AnalyticsDashboardProps) => {
   return (
     <div className="flex flex-col gap-6 ">
@@ -23,6 +24,8 @@ const AnalyticsDashbord = ({avgVisitorsPerDay,  pageviews, pageviews2 , timestam
           <BarChart
             allowDecimals={false}
             showAnimation
+              // @ts-ignore
+
             data={  pageviews.map((day) => ({
               // @ts-ignore
               name: day.timestamp,
@@ -42,6 +45,8 @@ const AnalyticsDashbord = ({avgVisitorsPerDay,  pageviews, pageviews2 , timestam
           <BarChart
             allowDecimals={false}
             showAnimation
+              // @ts-ignore
+
             data={  pageviews.map((day) => ({
               // @ts-ignore
             
@@ -63,6 +68,8 @@ const AnalyticsDashbord = ({avgVisitorsPerDay,  pageviews, pageviews2 , timestam
           <BarChart
             allowDecimals={false}
             showAnimation
+              // @ts-ignore
+
             data={  pageviews2.map((day) => ({
               // @ts-ignore
 

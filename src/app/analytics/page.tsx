@@ -1,12 +1,12 @@
-import {  analytics } from "@/utils/analytics"
+// import {  analytics } from "@/utils/analytics"
 import AnalyticsDashbord  from "./AnalyticsDashbord"
-import { getDate } from "date-fns"
+// import { getDate } from "date-fns"
 import {  pageviews } from "./data"
 import { pageviews2 } from "./data2"
 const pageview=async()=>{
   let pageviews: Date = new Date();
 
-  const TRACKING_DAYS=10
+  // const TRACKING_DAYS=10
   // const pageviews=await analytics.retreiveDays("pageview",2)
   
  
@@ -34,6 +34,8 @@ const pageview=async()=>{
   return (
     <div className="min-h-screen w-full py-12 flex justify-center items-center">
       <div className="relative w-full max-w-6xl mx-auto text-white">
+      // @ts-ignore
+
       <AnalyticsDashbord 
           
               // @ts-ignore
