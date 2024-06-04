@@ -6,11 +6,13 @@ import { analytics } from '@/utils/analytics'
 interface AnalyticsDashboardProps {
   avgVisitorsPerDay: string
   amtVisitorToday:number
+  timestamp:'YYYY-MM-DDTHH:mm'
+  
   pageviews: Awaited<ReturnType<typeof analytics.retreiveDays>>
   pageviews2: Awaited<ReturnType<typeof analytics.retreiveDays>>
 }
 // {}:AnalyticsDashbordprops
-const AnalyticsDashbord = ({avgVisitorsPerDay,  pageviews, pageviews2 }:AnalyticsDashboardProps) => {
+const AnalyticsDashbord = ({avgVisitorsPerDay,  pageviews, pageviews2 , timestamp}:AnalyticsDashboardProps) => {
   return (
     <div className="flex flex-col gap-6 ">
     <div className="grid w-full mx-auto  grid-cols-1 sm:grid-cols-2 gap-6">
@@ -22,9 +24,10 @@ const AnalyticsDashbord = ({avgVisitorsPerDay,  pageviews, pageviews2 }:Analytic
             allowDecimals={false}
             showAnimation
             data={  pageviews.map((day) => ({
+              // @ts-ignore
               name: day.timestamp,
               
-             
+              // @ts-ignore
               BadApi:day.src_port
             }))}
             categories={['BadApi']}
@@ -40,8 +43,12 @@ const AnalyticsDashbord = ({avgVisitorsPerDay,  pageviews, pageviews2 }:Analytic
             allowDecimals={false}
             showAnimation
             data={  pageviews.map((day) => ({
+              // @ts-ignore
+            
               name: day.timestamp,
               
+             
+              // @ts-ignore
              
               BadApi:day.src_port
             }))}
@@ -57,8 +64,12 @@ const AnalyticsDashbord = ({avgVisitorsPerDay,  pageviews, pageviews2 }:Analytic
             allowDecimals={false}
             showAnimation
             data={  pageviews2.map((day) => ({
+              // @ts-ignore
+
               name: day.timestamp,
               
+              // @ts-ignore
+    
               MiscAttack:day.src_port
             }))}
             categories={['MiscAttack']}
@@ -71,4 +82,5 @@ const AnalyticsDashbord = ({avgVisitorsPerDay,  pageviews, pageviews2 }:Analytic
     </div>
   )
 }
+export{}
 export default AnalyticsDashbord
